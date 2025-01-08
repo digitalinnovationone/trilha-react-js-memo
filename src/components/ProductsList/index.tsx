@@ -48,21 +48,25 @@ const ProductsList: FC<Props> = ({ category }) => {
     <>
       <div className="products__header">
         <h2 className="products__title">Choose products</h2>
-        <div className="search">
+        <form
+          className="search"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setSearchTerm(inputTerm);
+          }}
+        >
           <img src={SearchIcon} className="search__icon" />
+
           <input
             type="text"
             placeholder="Search for product..."
             className="search__input"
             onChange={(e) => setInputTerm(e.target.value)}
           />
-          <button
-            onClick={() => setSearchTerm(inputTerm)}
-            className="search__button"
-          >
+          <button type="submit" className="search__button">
             Search
           </button>
-        </div>
+        </form>
       </div>
       {loading && <p>📦 Loading products...</p>}
       {!loading && (

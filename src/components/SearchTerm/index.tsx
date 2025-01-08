@@ -10,7 +10,13 @@ const SearchBar: FC<Props> = ({ onSearch }) => {
   const [term, setTerm] = useState("");
 
   return (
-    <div className="search">
+    <form
+      className="search"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSearch(term);
+      }}
+    >
       <img src={SearchIcon} className="search__icon" />
       <input
         type="text"
@@ -18,10 +24,10 @@ const SearchBar: FC<Props> = ({ onSearch }) => {
         className="search__input"
         onChange={(e) => setTerm(e.target.value)}
       />
-      <button onClick={() => onSearch(term)} className="search__button">
+      <button type="submit" className="search__button">
         Search
       </button>
-    </div>
+    </form>
   );
 };
 
