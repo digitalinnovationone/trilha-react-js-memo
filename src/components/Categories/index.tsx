@@ -7,13 +7,7 @@ type Props = {
 
 const Categories: FC<Props> = ({ onClick }) => {
   const [active, setActive] = useState<string>("all");
-  const [categories, setCategories] = useState<string[]>([
-    "all",
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
-  ]);
+  const [categories, setCategories] = useState<string[]>(["all"]);
 
   useEffect(() => {
     const fetchCategories = async () => {
