@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import { Product } from "../../types/product";
 import SearchIcon from "../../assets/icons/search.svg";
