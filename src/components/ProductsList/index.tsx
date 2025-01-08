@@ -9,6 +9,9 @@ type Props = {
   category: string;
 };
 
+// ALL STORE DISCOUNT
+export const DISCOUNT_PERCENTAGE = 50;
+
 const ProductsList: FC<Props> = ({ category }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
@@ -44,6 +47,13 @@ const ProductsList: FC<Props> = ({ category }) => {
     }
   }, [category]);
 
+  const filteredProducts = products
+    .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map((product) => ({
+      ...product,
+      priceWithDiscount: (product.price * DISCOUNT_PERCENTAGE) / 100,
+    }));
+
   return (
     <>
       <div className="products__header">
@@ -71,18 +81,9 @@ const ProductsList: FC<Props> = ({ category }) => {
       {loading && <p>📦 Loading products...</p>}
       {!loading && (
         <div className="products">
-          {products
-            .filter((p) =>
-              p.title.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map((product) => (
-              <ProductItem
-                key={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-              />
-            ))}
+          {filteredProducts.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
         </div>
       )}
     </>

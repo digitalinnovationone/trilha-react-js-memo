@@ -26,3 +26,10 @@
   font-size: 1rem;
 }
 
+.product__discount {
+  background-color: rgb(215, 76, 76);
+  padding: 0.3rem;
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+}
+
