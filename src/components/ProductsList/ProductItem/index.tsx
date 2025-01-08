@@ -8,6 +8,8 @@ type Props = {
 };
 
 const ProductItem: FC<Props> = ({ image, title, price }) => {
+  console.log("Component ProductItem re-render");
+
   return (
     <div className="product__item">
       <img src={image} alt={title} className="product__image" />
