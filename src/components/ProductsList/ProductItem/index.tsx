@@ -1,15 +1,15 @@
 import { FC, memo } from "react";
 import "./styles.css";
 import { DISCOUNT_PERCENTAGE } from "..";
-import { Product } from "../../../types/product";
 
 type Props = {
-  product: Product;
+  image: string;
+  title: string;
+  price: number;
+  priceWithDiscount: number;
 };
 
-const ProductItem: FC<Props> = ({
-  product: { image, title, price, priceWithDiscount },
-}) => {
+const ProductItem: FC<Props> = ({ image, title, price, priceWithDiscount }) => {
   console.log("Component ProductItem re-render");
 
   return (

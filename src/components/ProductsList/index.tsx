@@ -47,16 +47,12 @@ const ProductsList: FC<Props> = ({ category }) => {
     }
   }, [category]);
 
-  const filteredProducts = useMemo(
-    () =>
-      products
-        .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        .map((product) => ({
-          ...product,
-          priceWithDiscount: (product.price * DISCOUNT_PERCENTAGE) / 100,
-        })),
-    [searchTerm, products]
-  );
+  const filteredProducts = products
+    .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map((product) => ({
+      ...product,
+      priceWithDiscount: (product.price * DISCOUNT_PERCENTAGE) / 100,
+    }));
 
   return (
     <>
@@ -85,9 +81,17 @@ const ProductsList: FC<Props> = ({ category }) => {
       {loading && <p>📦 Loading products...</p>}
       {!loading && (
         <div className="products">
-          {filteredProducts.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
+          {filteredProducts.map(
+            ({ id, image, title, price, priceWithDiscount }) => (
+              <ProductItem
+                key={id}
+                image={image}
+                title={title}
+                price={price}
+                priceWithDiscount={priceWithDiscount}
+              />
+            )
+          )}
         </div>
       )}
     </>
