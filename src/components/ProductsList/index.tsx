@@ -1,9 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import { Product } from "../../types/product";
-import SearchIcon from "../../assets/icons/search.svg";
 import "./styles.css";
-import "../SearchTerm/styles.css";
+import SearchBar from "../SearchBar";
 
 type Props = {
   category: string;
@@ -13,7 +12,6 @@ const ProductsList: FC<Props> = ({ category }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [inputTerm, setInputTerm] = useState("");
 
   console.log("Component ProductList re-render");
 
@@ -48,25 +46,7 @@ const ProductsList: FC<Props> = ({ category }) => {
     <>
       <div className="products__header">
         <h2 className="products__title">Choose products</h2>
-        <form
-          className="search"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSearchTerm(inputTerm);
-          }}
-        >
-          <img src={SearchIcon} className="search__icon" />
-
-          <input
-            type="text"
-            placeholder="Search for product..."
-            className="search__input"
-            onChange={(e) => setInputTerm(e.target.value)}
-          />
-          <button type="submit" className="search__button">
-            Search
-          </button>
-        </form>
+        <SearchBar onSearch={(term: string) => setSearchTerm(term)} />
       </div>
       {loading && <p>📦 Loading products...</p>}
       {!loading && (
