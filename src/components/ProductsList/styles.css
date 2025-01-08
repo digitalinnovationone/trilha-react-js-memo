@@ -1,0 +1,19 @@
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.75rem;
+
+  @media screen and (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.products__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+

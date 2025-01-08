@@ -1,0 +1,15 @@
+.header-title__title,
+.header-title__date {
+  margin: 0;
+}
+
+.header-title__title {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.header-title__date {
+  color: #e0e6e9;
+  font-weight: 100;
+}
+

@@ -1,0 +1,26 @@
+:root {
+  background-color: #252836;
+  color: #ffffff;
+  font-family: "Barlow", serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: "Barlow", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  padding: 0.875rem;
+  color: #fff;
+  background-color: #ea7c69;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+

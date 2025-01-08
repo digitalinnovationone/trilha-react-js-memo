@@ -1,0 +1,20 @@
+.search {
+  position: relative;
+}
+
+.search__icon {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 0.875rem;
+}
+
+.search__input {
+  color: #ffffff;
+  background-color: #2d303e;
+  border: 1px solid #393c49;
+  padding: 0.875rem;
+  padding-left: calc(0.875rem * 2 + 20px);
+  max-height: 1rem;
+  border-radius: 0.5rem;
+}
+

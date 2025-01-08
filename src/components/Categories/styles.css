@@ -1,0 +1,21 @@
+.categories {
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #393c49;
+  padding-bottom: 0.875rem;
+  margin: 1.5rem 0;
+}
+
+.categories__item {
+  font-size: 0.875rem;
+  cursor: pointer;
+  list-style: none;
+  text-transform: capitalize;
+}
+
+.categories__item:hover,
+.categories__item--active {
+  color: #ea7c69;
+}
+
