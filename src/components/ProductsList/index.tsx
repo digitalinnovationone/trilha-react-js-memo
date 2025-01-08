@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import ProductItem from "./ProductItem";
 import { Product } from "../../types/product";
 import SearchIcon from "../../assets/icons/search.svg";
@@ -47,12 +47,16 @@ const ProductsList: FC<Props> = ({ category }) => {
     }
   }, [category]);
 
-  const filteredProducts = products
-    .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
-    .map((product) => ({
-      ...product,
-      priceWithDiscount: (product.price * DISCOUNT_PERCENTAGE) / 100,
-    }));
+  const filteredProducts = useMemo(
+    () =>
+      products
+        .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
+        .map((product) => ({
+          ...product,
+          priceWithDiscount: (product.price * DISCOUNT_PERCENTAGE) / 100,
+        })),
+    [searchTerm, products]
+  );
 
   return (
     <>
