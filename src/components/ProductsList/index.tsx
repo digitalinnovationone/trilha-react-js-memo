@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import ProductsItem from "./ProductItem";
+import ProductItem from "./ProductItem";
 import "./styles.css";
 import { Product } from "../../types/product";
 
@@ -50,7 +50,7 @@ const ProductsList: FC<Props> = ({ searchTerm, category }) => {
               p.title.toLowerCase().includes(searchTerm.toLowerCase())
             )
             .map((product) => (
-              <ProductsItem
+              <ProductItem
                 image={product.image}
                 title={product.title}
                 price={product.price}

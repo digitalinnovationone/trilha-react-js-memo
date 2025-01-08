@@ -7,7 +7,7 @@ type Props = {
   price: number;
 };
 
-const ProductsItem: FC<Props> = ({ image, title, price }) => {
+const ProductItem: FC<Props> = ({ image, title, price }) => {
   return (
     <div className="product__item">
       <img src={image} alt={title} className="product__image" />
@@ -18,5 +18,5 @@ const ProductsItem: FC<Props> = ({ image, title, price }) => {
   );
 };
 
-export default ProductsItem;
+export default ProductItem;
 
