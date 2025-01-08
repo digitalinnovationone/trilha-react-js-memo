@@ -1,5 +1,7 @@
 .search {
   position: relative;
+  display: flex;
+  gap: 1rem;
 }
 
 .search__icon {
@@ -14,6 +16,7 @@
   border: 1px solid #393c49;
   padding: 0.875rem;
   padding-left: calc(0.875rem * 2 + 20px);
+  min-width: 300px;
   max-height: 1rem;
   border-radius: 0.5rem;
 }

@@ -1,16 +1,17 @@
 import { FC, useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
-import "./styles.css";
 import { Product } from "../../types/product";
+import SearchBar from "../SearchTerm";
+import "./styles.css";
 
 type Props = {
-  searchTerm: string;
   category: string;
 };
 
-const ProductsList: FC<Props> = ({ searchTerm, category }) => {
+const ProductsList: FC<Props> = ({ category }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -41,7 +42,10 @@ const ProductsList: FC<Props> = ({ searchTerm, category }) => {
 
   return (
     <>
-      <h2 className="products__title">Choose products</h2>
+      <div className="products__header">
+        <h2 className="products__title">Choose products</h2>
+        <SearchBar onSearch={(term: string) => setSearchTerm(term)} />
+      </div>
       {loading && <p>📦 Loading products...</p>}
       {!loading && (
         <div className="products">
