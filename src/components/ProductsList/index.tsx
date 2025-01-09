@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import { Product } from "../../types/product";
 import SearchIcon from "../../assets/icons/search.svg";
@@ -47,6 +47,10 @@ const ProductsList: FC<Props> = ({ category }) => {
     }
   }, [category]);
 
+  const addItemToCart = useCallback((productId: number) => {
+    console.log("Add item to cart. ID:", productId);
+  }, []);
+
   const filteredProducts = products
     .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
     .map((product) => ({
@@ -85,10 +89,12 @@ const ProductsList: FC<Props> = ({ category }) => {
             ({ id, image, title, price, priceWithDiscount }) => (
               <ProductItem
                 key={id}
+                id={id}
                 image={image}
                 title={title}
                 price={price}
                 priceWithDiscount={priceWithDiscount}
+                onAddToCart={addItemToCart}
               />
             )
           )}

@@ -3,13 +3,22 @@ import "./styles.css";
 import { DISCOUNT_PERCENTAGE } from "..";
 
 type Props = {
+  id: number;
   image: string;
   title: string;
   price: number;
   priceWithDiscount: number;
+  onAddToCart: (productId: number) => void;
 };
 
-const ProductItem: FC<Props> = ({ image, title, price, priceWithDiscount }) => {
+const ProductItem: FC<Props> = ({
+  id,
+  image,
+  title,
+  price,
+  priceWithDiscount,
+  onAddToCart,
+}) => {
   console.log("Component ProductItem re-render");
 
   return (
@@ -22,7 +31,7 @@ const ProductItem: FC<Props> = ({ image, title, price, priceWithDiscount }) => {
           <span className="product__discount">🎫 -{DISCOUNT_PERCENTAGE}%</span>
         )}
       </p>
-      <button>Add to cart</button>
+      <button onClick={() => onAddToCart(id)}>Add to cart</button>
     </div>
   );
 };
