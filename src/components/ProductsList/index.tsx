@@ -20,7 +20,7 @@ const ProductsList: FC<Props> = ({ category }) => {
   useEffect(() => {
     setLoading(true);
 
-    const fetchCategories = async () => {
+    const fetchProducts = async () => {
       const sufixUrl = category !== "all" ? `/category/${category}` : "";
       const result = await fetch(
         `https://fakestoreapi.com/products${sufixUrl}`
@@ -36,7 +36,7 @@ const ProductsList: FC<Props> = ({ category }) => {
     };
 
     try {
-      fetchCategories();
+      fetchProducts();
     } catch (err) {
       console.error("Error to fetch products list", err);
       setProducts([]);
